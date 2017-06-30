@@ -7,7 +7,7 @@ use strict;
 ## Postfix === Milter-Protokoll ===> Amavisd-Milter === AM.PDP-Protokoll ===> Amavis (und zurück)
 ##
 $protocol = "AM.PDP";
-$unix_socketname = "{{ amavis_socket }}";
+$unix_socketname = "{{ milter_amavis_socket }}";
 $inet_socket_port = undef;
 
 
@@ -34,7 +34,7 @@ $inet_socket_port = undef;
 
 @local_domains_maps = ( [] );
 
-@lookup_sql_dsn = ( ['DBI:mysql:database={{ sql_dovecot_db }};host={{ sql_host}} ;port={{ sql_port }}', '{{ sql_dovecot_user }}', '{{ sql_dovecot_user_password }}'], );
+@lookup_sql_dsn = ( ['DBI:mysql:database={{ milter_sql_db }};host={{ milter_sql_host}} ;port={{ milter_sql_port }}', '{{ milter_sql_user }}', '{{ milter_sql_user_password }}'], );
 
 $sql_select_policy = 'SELECT "Y" as local, 1 as id FROM domains WHERE CONCAT("@",domain) IN (%k)';
 $sql_select_white_black_list = undef;

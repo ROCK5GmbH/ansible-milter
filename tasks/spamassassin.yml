@@ -7,11 +7,11 @@
 
 # SQL User and Permissions
 - name: Create Application Database
-  mysql_db: name={{ sql_spamass_db }} state=present
+  mysql_db: name={{ milter_spamass_db }} state=present
   notify: import Spamassassin Initial dump
 
 - name: Generate spamassassin SQL User
-  mysql_user: login_user=root login_password={{ sql_root_password }} name={{ sql_spamass_user }} password={{ sql_spamass_user_password }} priv={{ sql_spamass_db }}.*:ALL host=localhost state=present
+  mysql_user: login_user=root login_password={{ sql_root_password }} name={{ milter_spamass_user }} password={{ milter_spamass_user_password }} priv={{ milter_spamass_db }}.*:ALL host=localhost state=present
 
 - name: Spamassassin Configuration
   template: src=spamass/local.cf.j2 dest=/etc/mail/spamassassin/local.cf owner=root group=vmail mode=0640

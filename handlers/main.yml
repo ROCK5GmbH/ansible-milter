@@ -8,7 +8,7 @@
 - name: import Spamassassin Initial dump
   mysql_db:
     state: import
-    name: "{{ sql_spamass_db }}"
+    name: "{{ milter_spamass_db }}"
     target: /usr/share/doc/spamassassin/sql/bayes_mysql.sql
 
 - name: restart postfix

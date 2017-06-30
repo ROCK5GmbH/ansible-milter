@@ -12,16 +12,16 @@
 
 - name: create opendkim-key directory
   file:
-    path: "{{ dkim_keys_dir }}"
+    path: "{{ milter_dkim_keys_dir }}"
     state: directory
     mode: 0750
     owner: root
     group: opendkim
 
 - name: generate dkim-key
-  command: opendkim-genkey --selector={{ dkim_keyname }} --bits=2048 --directory={{ dkim_keys_dir }}
+  command: opendkim-genkey --selector={{ milter_dkim_key_file }} --bits=2048 --directory={{ milter_dkim_keys_dir }}
   args:
-    creates: "/etc/opendkim/keys/{{ dkim_keyname }}.private"
+    creates: "/etc/opendkim/keys/{{ milter_dkim_key_file }}.private"
   notify: Restart OpenDKIM
 
 - name: keytable file
@@ -35,7 +35,7 @@
 
 - name: private-key permissions
   file:
-    path: /etc/opendkim/keys/{{ dkim_keyname }}.private
+    path: /etc/opendkim/keys/{{ milter_dkim_key_file }}.private
     state: file
     owner: opendkim
     group: opendkim

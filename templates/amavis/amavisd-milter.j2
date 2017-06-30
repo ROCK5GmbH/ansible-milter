@@ -13,7 +13,7 @@
 #MILTERSOCKET=/var/lib/amavis/amavisd-milter.sock
 # If you want the milter daemon to listen on tcp please
 # use something like the next line:
-MILTERSOCKET={{ amavis_milter_socket }}
+MILTERSOCKET={{ milter_amavis_milter_socket }}
 # When using postfix and you want the smtpd to run
 # chrooted you may need a socket inside the chroot.
 # You will probably also need the options at the end of
@@ -21,7 +21,7 @@ MILTERSOCKET={{ amavis_milter_socket }}
 #MILTERSOCKET=/var/run/amavis/amavisd-milter.sock
 
 # The default location of the amavisd-new socket
-AMAVISSOCKET={{ amavis_socket }}
+AMAVISSOCKET={{ milter_amavis_socket }}
 
 # Here amavisd-milter stores the mails which should get
 # checked (needs to be changed when amavisd-new TEMPBASE
