@@ -7,7 +7,7 @@
     - opendkim-tools
 
 - name: opendkim config
-  copy: src=etc/opendkim.conf dest=/etc/opendkim.conf owner=root group={{ dovecot_group }} mode=0664
+  copy: src=etc/opendkim.conf dest=/etc/opendkim.conf owner=root group={{ milter_dkim_group }} mode=0664
   notify: Restart OpenDKIM
 
 - name: create opendkim-key directory
