@@ -10,3 +10,4 @@ milter_dkim_key_file: key
 
 milter_spamass_db: spamassassin
 milter_spamass_user: spamass
+milter_spamass_user_override: vmail
