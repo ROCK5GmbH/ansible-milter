@@ -11,7 +11,7 @@
   notify: import Spamassassin Initial dump
 
 - name: Generate spamassassin SQL User
-  mysql_user: login_user=root login_password={{ milter_sql_root_password }} name={{ milter_spamass_user }} password={{ milter_spamass_user_password }} priv={{ milter_spamass_db }}.*:ALL host=localhost state=present
+  mysql_user: login_user=root login_password={{ milter_sql_root_password }} name={{ milter_spamass_user }} password={{ milter_sql_spamass_password }} priv={{ milter_spamass_db }}.*:ALL host=localhost state=present
 
 - name: Spamassassin Configuration
   template: src=spamass/local.cf.j2 dest=/etc/mail/spamassassin/local.cf owner=root group=vmail mode=0640
