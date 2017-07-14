@@ -21,4 +21,4 @@ galaxy_info:
     - clamav
     
 dependencies:
-    - { role: rock5.dbserver }
+    - { role: rock5gmbh.dbserver }
